@@ -25,6 +25,44 @@ if __name__ == '__main__':
     question_menu.pack(pady=10) # or grid
 
 
+    def generate_question():
+        global global_answer
+
+        difficulty = value_inside.get()
+
+
+        if difficulty == "Easy":
+            num1 = random.randint(1, 10)
+            num2 = random.randint(1, 10)
+        elif difficulty == "Medium":
+            num1 = random.randint(10, 50)
+            num2 = random.randint(10, 50)
+        elif difficulty == "Hard":
+            num1 = random.randint(50, 100)
+            num2 = random.randint(50, 100)
+        else:
+            return
+
+
+        operators = ["+", "-", "*", "/"]
+        operator = random.choice(operators)
+
+
+        question_text = f"{num1} {operator} {num2}"
+        label.config(text=question_text)
+
+        # Обчислюємо правильну відповідь
+        if operator == "+":
+            correct_answer = num1 + num2
+        elif operator == "-":
+            correct_answer = num1 - num2
+        elif operator == "*":
+            correct_answer = num1 * num2
+        elif operator == "/":
+            correct_answer = round(num1 / num2, 2)
+
+        global_answer = correct_answer
+        print(global_answer)
 
 
 
@@ -32,7 +70,9 @@ if __name__ == '__main__':
 
 
 
-
+    #button
+    submit_button = tk.Button(left_frame, text='Start', command=generate_question)
+    submit_button.pack(pady=10)
 
 
 
