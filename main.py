@@ -82,14 +82,30 @@ if __name__ == '__main__':
 
     switch_button = tk.Button(button_frame, text='Switch', command=generate_question)
 
+    entry = tk.Entry(left_frame)
+    entry.pack(pady=20)
 
 
+    def btn_check():
+        user_input = entry.get()
+        try:
+            user_answer = float(user_input)
+        except ValueError:
+            print("Please write a number")
+            entry.delete(0, tk.END)
+            return  # тепер всередині функції
+
+        if user_answer == global_answer:
+            print("Correct")
+        else:
+            print("Incorrect")
+
+        entry.delete(0, tk.END)
+        generate_question()
 
 
-
-
-
-
+    check_button = tk.Button(left_frame, text="Check", command=btn_check)
+    check_button.pack(pady=5)
 
 
 
@@ -99,9 +115,6 @@ if __name__ == '__main__':
     #Right FRAME - Calculator
     right_frame = tk.Frame(root,width=200,height=400,background="lightgrey")
     right_frame.pack(side="right", fill="y")
-
-
-
 
 
     root.mainloop() # start window
