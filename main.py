@@ -65,14 +65,29 @@ if __name__ == '__main__':
         print(global_answer)
 
 
-
-
-
-
-
     #button
-    submit_button = tk.Button(left_frame, text='Start', command=generate_question)
-    submit_button.pack(pady=10)
+    button_frame = tk.Frame(left_frame, bg="lightblue")
+    button_frame.pack(pady=10)
+
+
+    def start_game():
+        generate_question()
+        start_button.pack_forget()  # ховаємо Start
+        switch_button.pack()  # з’являється на тому ж місці
+
+
+
+    start_button = tk.Button(button_frame, text='Start', command=start_game)
+    start_button.pack()
+
+    switch_button = tk.Button(button_frame, text='Switch', command=generate_question)
+
+
+
+
+
+
+
 
 
 
