@@ -24,6 +24,15 @@ if __name__ == '__main__':
     question_menu = tk.OptionMenu(left_frame,value_inside, *options_list)
     question_menu.pack(pady=10) # or grid
 
+    entry = tk.Entry(left_frame)
+    entry.pack(pady=20)
+
+    score = 0
+    src = tk.Label(left_frame,text="Score: 0", font=("Arial", 16), bg="lightblue")
+    src.pack(side="top",pady=20)
+
+
+
 
     def generate_question():
         global global_answer
@@ -82,11 +91,12 @@ if __name__ == '__main__':
 
     switch_button = tk.Button(button_frame, text='Switch', command=generate_question)
 
-    entry = tk.Entry(left_frame)
-    entry.pack(pady=20)
 
 
     def btn_check():
+
+        global score
+
         user_input = entry.get()
         try:
             user_answer = float(user_input)
@@ -97,6 +107,8 @@ if __name__ == '__main__':
 
         if user_answer == global_answer:
             print("Correct")
+            score += 1
+            src.config(text=f"Score: {score}")
         else:
             print("Incorrect")
 
@@ -104,8 +116,16 @@ if __name__ == '__main__':
         generate_question()
 
 
+
+
+
     check_button = tk.Button(left_frame, text="Check", command=btn_check)
     check_button.pack(pady=5)
+
+
+
+
+
 
 
 
