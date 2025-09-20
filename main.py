@@ -137,4 +137,6 @@ if __name__ == '__main__':
     right_frame.pack(side="right", fill="y")
 
 
+
+
     root.mainloop() # start window

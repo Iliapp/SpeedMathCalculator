@@ -1,6 +1,7 @@
 # SpeedMath + Calculator
 
 A game for practicing quick math + a calculator for basic calculations in Python.
+Hope you enjoy this game.
 
 ## Features
 - Game with different difficulty levels (Easy, Medium, Hard)
