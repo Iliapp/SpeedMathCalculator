@@ -156,6 +156,11 @@ if __name__ == '__main__':
     cal = tk.Label(right_frame, text="Calculator", font=("Arial", 17), bg="lightgrey")
     cal.grid(row=0, column=0, columnspan=4, pady=5)
 
+    #GIT push input field(add input field for calculator)
+    Entry_cal = tk.StringVar(right_frame)
+    Entry2 = tk.Entry(right_frame, textvariable=Entry_cal, justify="right", font=("Arial", 18))
+    Entry2.grid(row=1, column=0, columnspan=10, padx=2, pady=10, sticky="ew", ipady=10)
+
 
 
     root.mainloop() # start window
