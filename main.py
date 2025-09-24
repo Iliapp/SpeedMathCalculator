@@ -2,6 +2,7 @@ import tkinter as tk
 import random
 
 
+
 if __name__ == '__main__':
 
     root = tk.Tk()
@@ -132,10 +133,28 @@ if __name__ == '__main__':
 
 
 
+
+
+
+
     #Right FRAME - Calculator
     right_frame = tk.Frame(root,width=200,height=400,background="lightgrey")
     right_frame.pack(side="right", fill="y")
+    right_frame.pack_propagate(False)
 
+    #Configutation add from inet
+    right_frame.grid_rowconfigure(0, weight=5)  # для Label
+    right_frame.grid_rowconfigure(1, weight=1)  # для Entry
+    right_frame.grid_rowconfigure(2, weight=4)  # для кнопок
+    right_frame.grid_columnconfigure(0, weight=1)
+    right_frame.grid_columnconfigure(1, weight=1)
+    right_frame.grid_columnconfigure(2, weight=1)
+    right_frame.grid_columnconfigure(3, weight=1)
+
+
+    # #GIT push label(add label for calculator)
+    cal = tk.Label(right_frame, text="Calculator", font=("Arial", 17), bg="lightgrey")
+    cal.grid(row=0, column=0, columnspan=4, pady=5)
 
 
 
