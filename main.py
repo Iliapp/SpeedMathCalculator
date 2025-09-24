@@ -163,4 +163,28 @@ if __name__ == '__main__':
 
 
 
+    # Entry_text = Entry_cal.get()
+    # print("Enter: +,-,*,/", Entry_text)
+
+    #Buttons GIT PUSH (Buttons)
+    buttons = [
+        ('7', 2, 0), ('8', 2, 1), ('9', 2, 2),('/', 2, 3),
+        ('4', 3, 0), ('5', 3, 1), ('6', 3, 2),('*', 3, 3),
+        ('1', 4, 0), ('2', 4, 1), ('3', 4, 2),('-', 4, 3),
+        ('0', 5, 0), ('.', 5, 1), ('=', 5, 2),('+', 5, 3),
+    ]
+
+    for txt, r, c in buttons:
+        tk.Button(right_frame, text=txt, width=5, height=2, font=("Arial", 12)).grid(row=r, column=c, padx=2, pady=2,sticky="nsew")
+        tk.Button(right_frame, text="Clear", padx=15, pady=5, width=12).grid(row=6, column=1, columnspan=2,pady=2)
+
+
+
+
+    # To make the buttons equal in width and height
+    for i in range(4):
+        right_frame.grid_columnconfigure(i, weight=1)
+    for i in range(2, 6):
+        right_frame.grid_rowconfigure(i, weight=1)
+
     root.mainloop() # start window
