@@ -2,7 +2,6 @@ import tkinter as tk
 import random
 
 
-
 if __name__ == '__main__':
 
     root = tk.Tk()
@@ -171,11 +170,12 @@ if __name__ == '__main__':
         Entry_cal.set("")
 
 
-
-
-
-
-
+    def equal():
+        try:
+            res = str(eval(Entry_cal.get()))
+            Entry_cal.set(str(res))
+        except Exception:
+            Entry_cal.set("Error")
 
 
     # Entry_text = Entry_cal.get()
@@ -190,7 +190,12 @@ if __name__ == '__main__':
     ]
 
     for txt, r, c in buttons:
-        tk.Button(right_frame, text=txt, width=5, height=2, font=("Arial", 12),command=lambda t=txt: click_button(t)).grid(row=r, column=c, padx=2, pady=2, sticky="nsew")
+        if txt == "=":
+            tk.Button(right_frame, text=txt, width=5, height=2, font=("Arial", 12),
+                      command=equal).grid(row=r, column=c, padx=2, pady=2, sticky="nsew")
+        else:
+            tk.Button(right_frame, text=txt, width=5, height=2, font=("Arial", 12),
+                      command=lambda t=txt: click_button(t)).grid(row=r, column=c, padx=2, pady=2, sticky="nsew")
 
     tk.Button(right_frame, text="Clear", padx=15, pady=5, width=12, command=clear).grid(row=6, column=1, columnspan=2, pady=2)
 
