@@ -32,6 +32,15 @@ if __name__ == '__main__':
     src.pack(side="top",pady=20)
 
 
+    time_left = 30
+    time_label = tk.Label(left_frame,text="Time: 30", font=("Arial", 16), bg="lightblue")
+    time_label.place(relx=1.0, y=10, anchor="ne")
+
+
+
+
+
+
 
 
     def generate_question():
