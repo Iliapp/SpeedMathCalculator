@@ -32,7 +32,7 @@ if __name__ == '__main__':
     src.pack(side="top",pady=20)
 
 
-    time_left = 5
+    time_left = 120
     time_label = tk.Label(left_frame,text="Time: ", font=("Arial", 16), bg="lightblue")
     time_label.place(relx=1.0, y=10, anchor="ne")
 
@@ -189,9 +189,12 @@ if __name__ == '__main__':
 
 
     def equal():
+        global score
         try:
             res = str(eval(Entry_cal.get()))
             Entry_cal.set(str(res))
+            score -= 0.5
+            src.config(text=f"Score: {score}")
         except Exception:
             Entry_cal.set("Error")
 
