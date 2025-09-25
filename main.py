@@ -1,6 +1,6 @@
 import tkinter as tk
 import random
-
+from tkinter import messagebox
 
 if __name__ == '__main__':
 
@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
 
     time_left = 30
-    time_label = tk.Label(left_frame,text="Time: 30", font=("Arial", 16), bg="lightblue")
+    time_label = tk.Label(left_frame,text="Time: ", font=("Arial", 16), bg="lightblue")
     time_label.place(relx=1.0, y=10, anchor="ne")
 
 
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
 
 
-    start_button = tk.Button(button_frame, text='Start', command=start_game)
+    start_button = tk.Button(button_frame, text='Start', command=lambda:(start_game(),countdown()))
     start_button.pack()
 
     switch_button = tk.Button(button_frame, text='Switch', command=generate_question)
@@ -125,18 +125,19 @@ if __name__ == '__main__':
         generate_question()
 
 
-
-
-
     check_button = tk.Button(left_frame, text="Check", command=btn_check)
     check_button.pack(pady=5)
 
 
-
-
-
-
-
+    def countdown():
+        global time_left
+        if time_left > 0:
+            mins, secs = divmod(time_left, 60)
+            time_label.config(text=f"{mins:02d}:{secs:02d}")
+            time_left -= 1
+            start_button.after(1000, countdown)
+        else:
+            messagebox.showinfo("Time's Up!", "The timer has finished.")
 
 
 
