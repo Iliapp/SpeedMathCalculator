@@ -32,9 +32,12 @@ if __name__ == '__main__':
     src.pack(side="top",pady=20)
 
 
-    time_left = 30
+    time_left = 5
     time_label = tk.Label(left_frame,text="Time: ", font=("Arial", 16), bg="lightblue")
     time_label.place(relx=1.0, y=10, anchor="ne")
+
+    #add button enter for btn_check
+    entry.bind("<Return>", lambda event: btn_check())
 
 
 
@@ -141,7 +144,7 @@ if __name__ == '__main__':
             time_left -= 1
             start_button.after(1000, countdown)
         else:
-            messagebox.showinfo("Time's Up!", "The timer has finished.")
+            messagebox.showinfo("Game Over", f"Time's up!\nFinal score: {score}")
             reset_game()
 
 
