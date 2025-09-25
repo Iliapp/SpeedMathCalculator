@@ -129,6 +129,10 @@ if __name__ == '__main__':
     check_button.pack(pady=5)
 
 
+    def reset_game():
+        root.quit()
+
+
     def countdown():
         global time_left
         if time_left > 0:
@@ -138,6 +142,7 @@ if __name__ == '__main__':
             start_button.after(1000, countdown)
         else:
             messagebox.showinfo("Time's Up!", "The timer has finished.")
+            reset_game()
 
 
 
